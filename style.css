@@ -1,0 +1,282 @@
+@import url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css');
+
+:root{
+  --brand:#005baa;
+  --brand-dark:#003f7d;
+  --bg:#f9f9f9;
+  --card:#ffffff;
+  --muted:#e6f0ff;
+  --text:#333;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body {
+  font-family: 'Vazir', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+a{color:inherit;text-decoration:none}
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:20px;
+}
+
+/* =======================
+   Header (stable on mobile)
+   ======================= */
+.header{
+  background:var(--brand);
+  color:#fff;
+  padding:12px 0;
+  position:relative;
+  z-index:50;
+  box-shadow:0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* wrapper: keep items on one line, avoid wrapping */
+.header-flex{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:0 20px;
+  flex-wrap:nowrap;            /* prevent call button to wrap below */
+  direction:rtl;              /* keep Persian flow */
+  row-gap:0;
+}
+
+/* ensure call button stays left visually by using row-reverse for RTL flow */
+.header-flex.row-reverse {
+  flex-direction:row-reverse;
+}
+
+/* site name: allow shrinking but not wrapping lines */
+.site-name{
+  font-size:22px;
+  font-weight:700;
+  color:#fff;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  order:2; /* keep visually on right in row-reverse */
+  margin:0;
+}
+
+/* call button: fixed flexible size, will never wrap */
+.call-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:#fff;
+  color:var(--brand);
+  padding:8px 14px;
+  border-radius:8px;
+  font-weight:700;
+  white-space:nowrap;
+  order:1;  /* keep visually on left in row-reverse */
+  flex:0 0 auto; /* do not grow or shrink */
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* small phone icon size adjustment */
+.call-button .icon{font-size:18px}
+
+/* =======================
+   About section
+   ======================= */
+.about{
+  background:var(--card);
+  padding:36px 0;
+}
+.about-flex{
+  display:flex;
+  gap:32px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.about-text{flex:1; min-width:260px}
+.about-text h1{color:var(--brand); font-size:35px; margin:0 0 12px}
+.about-text p{
+  background:var(--muted);
+  padding:14px;
+  border-radius:8px;
+  margin:0;
+}
+.about-buttons{margin-top:16px; display:flex; gap:12px; flex-wrap:wrap}
+.btn{
+  background:var(--brand);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:700;
+  transition:background .18s;
+}
+.btn:hover{background:var(--brand-dark)}
+.btn-outline{
+  background:transparent;
+  color:var(--brand);
+  border:2px solid var(--brand);
+}
+.about-image{flex:1; min-width:220px; text-align:center}
+.about-image img{max-width:100%; height:auto; border-radius:10px; display:inline-block}
+
+/* =======================
+   Services grid
+   ======================= */
+.services{padding:34px 0}
+.services h2{color:var(--brand); font-size:22px; margin-bottom:18px}
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+.service-box{
+  background:var(--card);
+  border:1px solid #e6e6e6;
+  padding:16px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.03);
+}
+.service-box h3{margin:0 0 8px; color:var(--brand)}
+
+/* =======================
+   Blog carousel
+   ======================= */
+.blog-carousel{padding:32px 0}
+.blog-carousel h2{color:var(--brand); margin-bottom:16px}
+.carousel{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  padding-bottom:8px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.post{
+  min-width:260px;
+  background:var(--card);
+  border-radius:10px;
+  padding:14px;
+  border:1px solid #e9e9e9;
+  flex:0 0 auto;
+  scroll-snap-align:start;
+}
+
+/* =======================
+   FAQ accordion
+   ======================= */
+.faq{padding:32px 0}
+.faq h2{color:var(--brand); margin-bottom:16px}
+.accordion .item{margin-bottom:10px}
+.question{
+  background:var(--brand);
+  color:#fff;
+  padding:10px;
+  border-radius:8px;
+  width:100%;
+  text-align:right;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+}
+.question.active{background:var(--brand-dark)}
+.answer{
+  display:none;
+  background:var(--muted);
+  padding:12px;
+  border-radius:8px;
+  margin-top:8px;
+}
+
+/* =======================
+   Footer
+   ======================= */
+.footer{
+  background:#222;
+  color:#fff;
+  padding:28px 0;
+}
+.footer-flex{display:flex; gap:32px; flex-wrap:wrap}
+.footer-left,.footer-right{flex:1; min-width:200px}
+.footer-left h2,.footer-right h3{margin:0 0 8px}
+.footer p{margin:6px 0}
+.copyright-box{
+  background:var(--brand);
+  color:#fff;
+  text-align:center;
+  padding:10px;
+  border-radius:8px;
+  margin-top:18px;
+}
+
+/* =======================
+   Mobile fixed call button
+   ======================= */
+.mobile-call-button{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  background:var(--brand);
+  color:#fff;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  font-size:22px;
+}
+
+/* =======================
+   Responsive rules
+   ======================= */
+@media (max-width:992px){
+  .about-flex{gap:20px}
+}
+
+@media (max-width:768px){
+  /* Keep header items on one line and ensure call button stays left */
+  .header-flex{
+    padding:8px 14px;
+    gap:8px;
+    flex-wrap:nowrap;        /* critical: prevent wrapping */
+  }
+  /* Ensure row-reverse layout remains so call-button visually left, site-name right */
+  .header-flex.row-reverse{flex-direction:row-reverse}
+
+  .site-name{
+    font-size:18px;
+    order:2;
+    min-width:0;             /* allow ellipsis */
+  }
+  .call-button{
+    order:1;
+    padding:6px 10px;
+    font-size:14px;
+    flex:0 0 auto;
+  }
+
+  /* make sure the header content can shrink but not wrap */
+  .header-flex > *{min-width:0}
+
+  /* show mobile floating call button */
+  .mobile-call-button{display:flex}
+}
+
+/* small tweaks for very small screens */
+@media (max-width:420px){
+  .call-button{padding:6px 8px; font-size:13px}
+  .site-name{font-size:16px}
+  .mobile-call-button{width:50px;height:50px;font-size:20px;left:14px;bottom:14px}
+}
