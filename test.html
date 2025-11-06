@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover" />
+  <title>تعمیر و سرویس پکیج بیتا — فوری پشتیبان</title>
+  <meta name="description" content="فوری پشتیبان — تعمیر تخصصی و سرویس پکیج بیتا در تبریز. سرویس در محل، قطعات اصلی و گارانتی معتبر." />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8fa; --card:#fff; --muted:#6b7280; --text:#0f1724;
+      --primary:#144a55; --accent:#0e7aa6; --radius:10px; --shadow:0 8px 24px rgba(12,25,35,0.06);
+      --cta-bg:#0e7aa6; --cta-color:#fff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Vazirmatn',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1080px;margin:20px auto;padding:16px}
+
+    /* header */
+    .header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .brand .btn-site{display:inline-flex;align-items:center;padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(20,74,85,0.06);color:var(--primary);font-weight:700}
+    .contact{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+    .contact .label{font-size:13px;color:var(--muted)}
+    .contact .tel{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;font-weight:700}
+
+    /* hero */
+    .hero{position:relative;overflow:hidden;border-radius:12px;box-shadow:var(--shadow);height:340px;background:#eaf3f6;display:flex;align-items:flex-end;padding:20px;background-size:cover;background-position:center}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,30,0.08),rgba(6,20,30,0.32));pointer-events:none}
+    .hero-inner{position:relative;z-index:2;max-width:720px}
+    .hero-title{margin:0;color:#fff;font-size:26px;line-height:1.05;font-weight:800}
+    .hero-sub{margin:8px 0 0;color:rgba(255,255,255,0.92);font-size:13px}
+    .hero-ctas{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .cta-primary{background:#fff;color:var(--primary);padding:10px 14px;border-radius:10px;font-weight:700}
+    .cta-ghost{background:transparent;border:1px solid rgba(255,255,255,0.16);color:#fff;padding:10px 14px;border-radius:10px;font-weight:600}
+
+    /* layout: flexible columns */
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:16px}
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:var(--shadow)}
+    h3{margin:0 0 8px;font-size:15px;color:var(--primary)}
+
+    /* table responsive wrapper */
+    .table-wrap{width:100%;overflow:auto}
+    table{width:100%;min-width:420px;border-collapse:collapse;font-size:14px}
+    th,td{padding:10px;border-bottom:1px solid #eef6fb;text-align:center}
+    thead th{background:#fbfdff;color:var(--muted);font-weight:600}
+
+    /* maintenance blocks */
+    .maint{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+    .item{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #eef6fb}
+    .num{min-width:40px;height:40px;border-radius:8px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+    .item strong{display:block;color:var(--primary);margin-bottom:6px}
+    .item p{margin:0;color:var(--muted);font-size:14px}
+
+    /* services grid: fluid */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px}
+    .service{padding:12px;border-radius:8px;background:#fff;border:1px solid #eef6fb}
+    .service h4{margin:0 0 8px 0;color:var(--primary);font-size:14px}
+    .service p{margin:0;color:var(--muted);font-size:13px}
+
+    /* contact box (fixed: RIGHT-ALIGNED) */
+    .contact-box{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-end; /* items aligned to right in RTL */
+      text-align:right;     /* text is right-aligned */
+    }
+    .tel-large{font-weight:800;color:var(--accent);font-size:16px}
+
+    /* fixed call */
+    .fixed-call{position:fixed;left:14px;bottom:14px;z-index:1000;display:inline-flex;align-items:center;gap:10px;background:var(--cta-bg);color:var(--cta-color);padding:12px 14px;border-radius:999px;box-shadow:0 10px 30px rgba(14,122,166,0.18);font-weight:800;font-size:15px;text-decoration:none}
+    .fixed-call .dot{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+
+    /* footer */
+    footer{text-align:center;margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* responsive rules */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .hero{height:300px;padding:18px}
+      .hero-title{font-size:22px}
+      .table-wrap{overflow:auto}
+    }
+    @media (max-width:560px){
+      .wrap{padding:12px;margin:12px auto}
+      .header{gap:8px}
+      .contact{align-items:flex-start}
+      .brand .btn-site{padding:8px 10px;font-size:14px}
+      .hero{height:240px;padding:14px}
+      .hero-title{font-size:18px}
+      .fixed-call{left:10px;bottom:10px;padding:10px 12px;font-size:14px}
+      table{min-width:360px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="header" role="banner" aria-label="هدر">
+      <div class="brand" aria-hidden="false">
+        <a class="btn-site" href="https://rezaas7.github.io/foriposhtiban/" target="_blank" rel="noopener">فوری پشتیبان</a>
+      </div>
+
+      <div class="contact" role="navigation" aria-label="تماس فوری">
+        <div class="label">تماس فوری</div>
+        <a class="tel" href="tel:09149896976">09149896976</a>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero" style="background-image:url('bita.png');" role="region" aria-label="معرفی خدمات">
+      <div class="hero-inner">
+        <h1 class="hero-title">🔧 تعمیر تخصصی پکیج دیواری بیتا در تبریز</h1>
+        <p class="hero-sub">خدمات سریع، قطعات اصلی، گارانتی معتبر — تکنسین‌های مجرب فوراً در محل شما</p>
+        <div class="hero-ctas">
+          <a class="cta-primary" href="tel:09149896976">تماس فوری</a>
+          <a class="cta-ghost" href="https://foriposhtiban.ir" target="_blank" rel="noopener">ورود به فوری پشتیبان</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- main -->
+    <main class="grid" role="main">
+      <div>
+        <section class="card" aria-labelledby="intro-title">
+          <h3 id="intro-title">معرفی کوتاه</h3>
+          <p class="muted">در صورتی که پکیج دیواری بیتا شما دچار اختلال شده و به‌دنبال یک مرکز تخصصی و قابل‌اعتماد در تبریز هستید، «فوری پشتیبان» با تکیه بر تجربه فنی، استفاده از قطعات اصلی و ارائه خدمات فوری در محل، آماده رفع هرگونه ایراد با ضمانت کیفیت است.</p>
+        </section>
+
+        <section class="card" style="margin-top:12px" aria-labelledby="why-title">
+          <h3 id="why-title">⚙️ چرا فوری پشتیبان؟</h3>
+          <ul style="margin:8px 0 0 16px;color:var(--muted);line-height:1.6;padding-left:0">
+            <li>تعمیر قطعات به‌جای تعویض غیرضروری</li>
+            <li>اعزام تکنسین در کمتر از 4 ساعت</li>
+            <li>قطعات اصلی BITA با گارانتی رسمی</li>
+            <li>تعرفه منصفانه طبق نرخ اتحادیه</li>
+            <li>پوشش کامل مناطق تبریز</li>
+            <li>پشتیبانی شبانه‌روزی حتی در تعطیلات</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:12px" aria-labelledby="common-title">
+          <h3 id="common-title">⚠️ رایج‌ترین مشکلات پکیج بیتا</h3>
+          <div class="table-wrap" style="margin-top:8px">
+            <table aria-describedby="common-title">
+              <thead><tr><th>مشکل</th><th>علت احتمالی</th></tr></thead>
+              <tbody>
+                <tr><td>دستگاه روشن نمی‌شود</td><td>خرابی برد کنترل یا اتصالات برق</td></tr>
+                <tr><td>نشت آب از دستگاه</td><td>خرابی واشرها یا گرفتگی فیلترها</td></tr>
+                <tr><td>گرمایش ضعیف</td><td>افت گاز یا خرابی کمپرسور</td></tr>
+                <tr><td>صدای زیاد هنگام کار</td><td>عدم تراز یا ایراد در موتور</td></tr>
+                <tr><td>بخار زیاد یا یخ‌زدگی</td><td>انسداد لوله‌های تخلیه یا خرابی دیفراست</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:12px" aria-labelledby="errors-title">
+          <h3 id="errors-title">📊 کدهای خطای پکیج بیتا</h3>
+          <div class="table-wrap" style="margin-top:8px">
+            <table aria-describedby="errors-title">
+              <thead><tr><th>کد</th><th>شرح</th></tr></thead>
+              <tbody>
+                <tr><td>E01</td><td>خطا در روشن شدن مشعل</td></tr>
+                <tr><td>E03</td><td>دمای بیش از حد مبدل</td></tr>
+                <tr><td>E05</td><td>عدم عملکرد فن</td></tr>
+                <tr><td>E06</td><td>خطا در سنسور دما</td></tr>
+                <tr><td>E10</td><td>افت فشار مدار گرمایشی</td></tr>
+                <tr><td>E12</td><td>خطا در سنسور آب گرم</td></tr>
+                <tr><td>E20</td><td>اختلال در کنترل احتراق</td></tr>
+                <tr><td>E34</td><td>ولتاژ برق کمتر از حد مجاز</td></tr>
+                <tr><td>E37</td><td>نوسان فرکانس برق</td></tr>
+                <tr><td>E43</td><td>فعال شدن سیستم محافظ مبدل</td></tr>
+                <tr><td>E51</td><td>انسداد مدار دودکش یا هوای احتراق</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:12px" aria-labelledby="maint-title">
+          <h3 id="maint-title">💡 نکات نگهداری</h3>
+          <div class="maint" style="margin-top:8px">
+            <div class="item"><div class="num">1</div><div><strong>تمیزکاری فیلترها هر سه ماه</strong><p>از گرفتگی مسیر آب و افت فشار جلوگیری می‌کند.</p></div></div>
+            <div class="item"><div class="num">2</div><div><strong>نصب محافظ برق استاندارد</strong><p>از آسیب برد و قطعات حساس جلوگیری می‌کند.</p></div></div>
+            <div class="item"><div class="num">3</div><div><strong>تنظیم دما بین ۱۶ تا ۲۴ درجه</strong><p>مصرف انرژی را کاهش و عمر قطعات را افزایش می‌دهد.</p></div></div>
+            <div class="item"><div class="num">4</div><div><strong>بررسی سالیانه سیستم ضدبخار و موتور</strong><p>از یخ‌زدگی و افت راندمان جلوگیری می‌کند.</p></div></div>
+            <div class="item"><div class="num">5</div><div><strong>نصب در محیط خشک و دارای تهویه</strong><p>از خوردگی و تجمع رطوبت جلوگیری می‌کند.</p></div></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- right column -->
+      <aside>
+        <section class="card" id="services" aria-labelledby="services-title">
+          <h3 id="services-title">🔧 خدمات اختصاصی</h3>
+          <p class="muted">تعمیر، سرویس و پشتیبانی فنی در محل با قطعات اصلی.</p>
+          <div class="services" role="list" style="margin-top:10px">
+            <div class="service" role="listitem"><h4>تعمیر کمپرسور High-Efficiency</h4><p>رفع خرابی کمپرسور در کمتر از ۲ ساعت.</p></div>
+            <div class="service" role="listitem"><h4>تمیزکاری عمیق سیستم ضدبخار</h4><p>جلوگیری از تجمع بخار و یخ‌زدگی.</p></div>
+            <div class="service" role="listitem"><h4>رفع خرابی پنل SmartControl</h4><p>عیب‌یابی نرم‌افزاری و تعمیر برد.</p></div>
+            <div class="service" role="listitem"><h4>تعمیر سیستم گرمایش TurboHeat</h4><p>بهینه‌سازی بخش گرمایشی.</p></div>
+            <div class="service" role="listitem"><h4>خدمات فوری در محل</h4><p>پاسخ‌دهی سریع و انجام تعمیرات در محل.</p></div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:12px" aria-labelledby="contact-title">
+          <h3 id="contact-title">درخواست سرویس</h3>
+          <div class="contact-box">
+            <p class="muted" style="margin:0">برای رزرو سرویسکار یا دریافت مشاوره تماس بگیرید:</p>
+            <div class="tel-large" style="margin-top:6px"><a href="tel:09149896976">09149896976</a></div>
+            <div style="color:var(--muted);font-size:13px;margin-top:6px">خدمات در محل · قطعات اصلی · گارانتی</div>
+            <a class="cta-primary" href="tel:09149896976" style="margin-top:10px;display:inline-block;text-align:center">تماس فوری</a>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      © تمام حقوق برای «فوری پشتیبان» محفوظ است — تبریز
+    </footer>
+  </div>
+
+  <!-- fixed call button -->
+  <a class="fixed-call" href="tel:09149896976" aria-label="تماس فوری">
+    <span class="dot">📞</span><span>تماس فوری</span>
+  </a>
+</body>
+</html>
